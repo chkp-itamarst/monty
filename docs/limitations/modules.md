@@ -24,7 +24,8 @@ Builtins take precedence; the hook overrides `external_modules`. Hook errors pro
 Async functions, bound methods and other callable objects are rejected with `TypeError`.
 Tracebacks retain hook and `exec` frames, unlike CPython's filtered importlib frames.
 
-The loader owns file access, caching, cycle detection and package discovery; the hook supplies none of these or frozen exports.
+The loader owns file access, caching, cycle detection and package discovery; the hook supplies none of these.
+The hook does not make exports immutable.
 Isolated [exec](eval_exec.md) globals must supply the hook for nested imports.
 Relative and wildcard imports remain unsupported; type checking does not infer hook exports.
 
